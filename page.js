@@ -17,6 +17,7 @@ module.exports = {
     linkCardButton: 'button=Link',
     closePaymentMethodModalButton: '.payment-picker .close-button',
     supportivePlanButton: '.tcard-icon',
+    supportivePlanButtonActive: '.div.tcard.active',
     messageToTheDriverField: 'div=.input-container',
     orderRequirementsButton: 'div.reqs-header',
     blanketAndHandkerchiefsButton: 'div.r-sw',
@@ -28,6 +29,7 @@ module.exports = {
 
     // Modals
     PhoneNumberModal: '.modal',
+    carSearchModal: '.order-body',
     // Misc
     cardSignatureStrip: '.plc',
     cardPaymentMethodIcon: 'img[alt="card"]',
@@ -101,3 +103,7 @@ module.exports = {
         await expect(await $(cardPaymentMethodIcon)).toBeExisting();
     }
 };
+
+
+
+
