@@ -3,7 +3,7 @@ Urban Routes Automated Tests
 -This project contains automated tests for Urban Routes, covering the full process of ordering a taxi.
 
 Purpose
-- The purpose of this project is to ensure the functionality of Urban Routes by creating automated tests for various scenarios related to ordering a taxi.
+The purpose of this project is to ensure the functionality of Urban Routes by creating automated tests for various scenarios related to ordering a taxi.
 
 Writing Tests
 All test scripts are located in the test/specs folder. The main test script for ordering a taxi is createAnOrder.e2e.js. This script covers the following scenarios:
