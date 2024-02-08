@@ -16,8 +16,8 @@ module.exports = {
     addCardButton: 'div=Add card',
     linkCardButton: 'button=Link',
     closePaymentMethodModalButton: '.payment-picker .close-button',
-    supportivePlanButton: '.tcard-icon',
-    supportivePlanButtonActive: '.div.tcard.active',
+    supportivePlanButton: 'div=Supportive',
+    supportivePlanButtonActive: 'div=Supportive',
     messageToTheDriverField: 'div=.input-container',
     orderRequirementsButton: 'div.reqs-header',
     blanketAndHandkerchiefsButton: 'div.r-sw',
@@ -103,7 +103,3 @@ module.exports = {
         await expect(await $(cardPaymentMethodIcon)).toBeExisting();
     }
 };
-
-
-
-
