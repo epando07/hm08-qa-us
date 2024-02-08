@@ -8,12 +8,14 @@ describe('Create an order', () => {
         // Call the taxi to the address
         await browser.url(`/`);
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
+        await expect(await $(page.fillAddresses)).toBeExisting();
     });
     
 
         // Select supportive plan
     it('should select supportive plan', async () => {
         await browser.url(`/`);
+        await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         const supportivePlanButton = await $(page.supportivePlanButton);
         await supportivePlanButton.waitForDisplayed();
         await supportivePlanButton.click();
