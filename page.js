@@ -28,7 +28,7 @@ module.exports = {
 
 
     // Modals
-    PhoneNumberModal: '.modal',
+    phoneNumberModal: '.modal',
     carSearchModal: '.order-body',
     // Misc
     cardSignatureStrip: '.plc',
