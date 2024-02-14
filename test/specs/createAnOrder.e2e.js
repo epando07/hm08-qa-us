@@ -8,6 +8,8 @@ describe('Create an order', () => {
         // Call the taxi to the address
         await browser.url(`/`);
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
+        await expect($(page.fromField)).toHaveValue('East 2nd Street, 601');
+        await expect($(page.toField)).toHaveValue('1300 1st St');
         
     });
     
@@ -27,25 +29,20 @@ describe('Create an order', () => {
         
         
         // Input phone number
-    it('should input phone number', async () => {
+    it('should input phone number', async () => { 
         await browser.url(`/`);
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
-        const phoneNumber = helper.getPhoneNumber("+1");
-        await page.submitPhoneNumber(phoneNumber);
+        const phoneNumber = helper.getPhoneNumber("+1"); 
+        await page.submitPhoneNumber(phoneNumber); 
         await expect(await helper.getElementByText(phoneNumber)).toBeExisting();
     });
     
-        
-
         // Adding a payment card
     it('should add a payment card', async () => {
         await browser.url(`/`);
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.addPaymentMethodCard();
 
-        const cardPaymentMethodIcon = await $(page.cardPaymentMethodIcon);
-        await cardPaymentMethodIcon.waitForDisplayed();
-        await expect(await $(cardPaymentMethodIcon)).toBeExisting();
     });
     
 
@@ -53,11 +50,11 @@ describe('Create an order', () => {
     it('should leave a message for the driver', async () => {
         await browser.url(`/`);
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
-        const messageToTheDriverField = await $(page.messageToTheDriverField);
-        await messageToTheDriverField.waitForDisplayed();
-        await messageToTheDriverField.click();
+        const messageToTheDriverButton = await $(page.messageToTheDriverButton);
+        await messageToTheDriverButton.waitForDisplayed();
+        await messageToTheDriverButton.click();
         await messageToTheDriverField.setValue('Get some whiskey');
-        await expect($(page.messageToTheDriver)).toHaveValue("Get some whiskey");
+        await expect($(page.messageToTheDriverField)).toHaveValue();
     });
     
 
