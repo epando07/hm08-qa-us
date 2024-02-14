@@ -6,10 +6,10 @@ module.exports = {
     codeField: '#code',
     cardNumber: '#number',
     cardCode: '.card-second-row #code',
-    messageToTheDriver: '.#comment.input #Get some whiskey',
+    messageToTheDriverField: '#comment.input #Get some whiskey',
     // Buttons
     callATaxiButton: 'button=Call a taxi',
-    phoneNumberButton: 'div*=phone number',
+    phoneNumberButton: 'div.np-button',
     nextButton: 'button=Next',
     confirmButton: 'button=Confirm',
     paymentMethodButton: '.pp-text',
@@ -18,9 +18,9 @@ module.exports = {
     closePaymentMethodModalButton: '.payment-picker .close-button',
     supportivePlanButton: 'div=Supportive',
     supportivePlanButtonActive: 'div=Supportive',
-    messageToTheDriverField: 'div=.input-container',
+    messageToTheDriverButton: '.input-container',
     orderRequirementsButton: 'div.reqs-header',
-    blanketAndHandkerchiefsButton: 'div.r-sw',
+    blanketAndHandkerchiefsButton: 'div.r-sw-label',
     iceCreamButton: 'div=.r-counter-label',
     iceCreamCounterButton: 'div-.counter',
     iceCreamCounterPlusButton: 'div=.counter-plus',
@@ -60,7 +60,7 @@ module.exports = {
         await $(this.nextButton).click();
         // we should wait for response
         // eslint-disable-next-line wdio/no-pause
-        await browser.pause(2000);
+        //await browser.pause(2000);
         const codeField = await $(this.codeField);
         // collect all responses
         const requests = await browser.getRequests();
@@ -75,31 +75,5 @@ module.exports = {
         await paymentMethodButton.waitForDisplayed();
         await paymentMethodButton.click();
 
-        const addCardButton = await $(this.addCardButton);
-        await addCardButton.waitForDisplayed();
-        await addCardButton.click();
-
-        const cardNumber = await $(this.cardnumber);
-        await cardNumber.waitForDisplayed();
-        await cardNumber.setValue(1234567812345678);
-        const cardCode = await $(this.cardCode);
-        await cardCode.waitForDisplayed();
-        await cardCode.setValue(55);
-
-        const cardSignatureStrip = await $(this.cardSignatureStrip);
-        await cardSignatureStrip.waitForDisplayed();
-        await cardSignatureStrip.click();
-
-        const linkCardButton = await $(this.linkCardButton);
-        await linkCardButton.waitForDisplayed();
-        await linkCardButton.click();
-
-        const closePaymentMethodModalButton = await $(this.closePaymentMethodModalButton);
-        await closePaymentMethodModalButton.waitForDisplayed();
-        await closePaymentMethodModalButton.click();
-
-        const cardPaymentMethodIcon = await $(this.cardPaymentMethodIcon);
-        await cardPaymentMethodIcon.waitForDisplayed();
-        await expect(await $(cardPaymentMethodIcon)).toBeExisting();
-    }
+    },
 };
